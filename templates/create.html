@@ -1,0 +1,27 @@
+{% extends "header.html" %}
+
+{% block content %}
+{% if notification %}
+        <div class="alert alert-success alert-dismissible">
+            <a href="/create" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Congrats</strong> You successfully created a recipe for: {{notification}}
+        </div>
+{% endif %}
+
+<h1 class='pt-4 mb-4'>Create A New Recipe</h1>
+
+<div class="form">
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <table align="center">
+            <tbody>
+                <tr><td>{{ form.title.label }}</td><td>{{ form.title(size=30) }}</td></tr>
+                <tr><td>{{ form.ingredients.label }} </td><td> {{ form.ingredients(size=30) }}</td></tr>
+                <tr><td>{{ form.instructions.label }}</td><td>{{ form.instructions(size=30) }}</td></tr>
+            </tbody>
+        </table>
+        <p class = "pt-4">{{ form.submit() }}</p>
+    </form>   
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+html,body{
+    height:100%;
+}
+h1 {
+    font-weight:bold;
+    text-align:center;
+}
+div.form {
+    text-align:center;
+}
+div.centerTable{
+    margin: 100px 100px 100px 100px;
+}
+div.lightGreyBackground{
+    background-color: white;
+    min-height: 100%;
+}
+div.darkGreenBackground{
+    background-color:green;
+}
+p1 {
+    font-weight:bold;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
