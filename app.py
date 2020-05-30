@@ -35,7 +35,8 @@ def createRecipe():
     if form.validate_on_submit():
         #Add the recipe, maybe check that it doesn't exist already - 
         db.child("recipes").push({
-            'title' : form.title.data,
+            'title': form.title.data,
+            'description' : form.description.data,
             'instructions': form.instructions.data.split(","),
             'ingredients': form.ingredients.data.split(","),
             'author': 'FILLER',
