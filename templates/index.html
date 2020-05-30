@@ -22,7 +22,7 @@
 		{% for r_id in reps %}
 			<!-- Recipe Cards -->
 			
-			<button type="button" class="btn btn-primary w-25 h-25" style="margin-left: 6.25%" data-toggle="modal" data-target="#{{reps[r_id]['title']}}">
+			<button type="button" class="btn btn-primary w-25 h-25 mb-3" style="margin-left: 6.25%" data-toggle="modal" data-target="#{{reps[r_id]['title']}}">
 				{{reps[r_id]['title']}}
 			</button>
 			
@@ -39,6 +39,7 @@
 
 						</div>
 						<div class="modal-body">
+							<p>{{reps[r_id]['description']}}</p>
 							<h5><u>Ingredients</u></h5>
 								{% for i in reps[r_id]['ingredients'] %}
 									<p>{{i}}</p>
@@ -61,6 +62,7 @@
 			<thead class="bg-primary" style='color:white'>
 				<tr>
 					<th scope="col">Recipe Name</th>
+					<th scope="col">Description</th>
 					<th scope="col">Instructions</th>
 					<th scope="col">Ingredients</th>
 					<th scope="col">Author</th>
@@ -75,6 +77,7 @@
 								{{reps[r_id]['title']}}
 							</button>
 						</td>
+						<td>{{reps[r_id]['description']}}</td>
 						<td>
 							{% for i in reps[r_id]['instructions'] %}
 								{{i}}
