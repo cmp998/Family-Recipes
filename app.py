@@ -18,16 +18,18 @@ from flask import *
 app = Flask(__name__)
 app.config['SECRET_KEY'] = cfg.firebase["secret_key"]
     
-#print(db.child('recipes').get().val())
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def display():
+    return redirect(url_for('home'))
+
+@app.route('/home', methods=['GET'])
+def home():
     recipe_list = db.child('recipes').get().val()
     if recipe_list == None:
         return render_template('index.html')
 
     return render_template('index.html', reps=db.child('recipes').get().val())
-    #return redirect(url_for('index'), reps=db.child('recipes').get().val())
 
 @app.route('/create', methods=['GET', 'POST'])
 def createRecipe():
@@ -43,7 +45,8 @@ def createRecipe():
             'notes' : form.notes.data
         })
         #return redirect(url_for('index', reps=db.child('recipes').get().val(), notification=form.title.data))
-        return render_template('create.html', title='New Recipe', form=form, notification=form.title.data)
+        return redirect(url_for('home'))
+        #return render_template('create.html', title='New Recipe', form=form, notification=form.title.data)
     else:
         return render_template('create.html', title='New Recipe', form=form)
 
